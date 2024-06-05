@@ -16,7 +16,6 @@ import Navbar from './components/Navbar';
 import Viewer from './pages/pdfs/pdfViewer';
 import Files3d from './pages/3dFiles';
 import Footer from './components/Footer';
-import PDFViewer from './components/PdfViewer';
 import ViewerPage from './pages/Pdf';
 
 const App = () => {
@@ -39,7 +38,7 @@ const App = () => {
             <Route path="/pdfs/viewerpdf" element={<Viewer />} />
             <Route path="/viewer3d" element={<Viewer3D />} />
             <Route path="/3dmodels" element={<Files3d />} />
-            <Route path="/pdfViewer" element={<ViewerPage />} />
+            <Route path="/pdfViewer/:file" element={<ViewerPage />} />
           </Routes>
         </main>
         <Footer />
