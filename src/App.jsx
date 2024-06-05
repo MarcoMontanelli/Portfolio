@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import AboutMe from './pages/aboutMe';
+import Files from './pages/files';
+import './index.css';
+import TPSI from './pages/pdfs/tpsi';
+import Informatica from './pages/pdfs/informatica';
+import Sistemi from './pages/pdfs/sistemi';
+import Italiano from './pages/pdfs/italiano';
+import Storia from './pages/pdfs/storia';
+import Inglese from './pages/pdfs/inglese';
+import Telecomunicazioni from './pages/pdfs/tlc';
+import Viewer3D from './pages/3dViewer';
+import Navbar from './components/Navbar';
+import Viewer from './pages/pdfs/pdfViewer';
+import Files3d from './pages/3dFiles';
+import Footer from './components/Footer';
+import PDFViewer from './components/PdfViewer';
+import ViewerPage from './pages/Pdf';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Navbar />
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/about-me" element={<AboutMe />} />
+            <Route path="/files" element={<Files />} />
+            <Route path="/pdfs/tpsi" element={<TPSI />} />
+            <Route path="/pdfs/informatica" element={<Informatica />} />
+            <Route path="/pdfs/sistemi" element={<Sistemi />} />
+            <Route path="/pdfs/italiano" element={<Italiano />} />
+            <Route path="/pdfs/storia" element={<Storia />} />
+            <Route path="/pdfs/inglese" element={<Inglese />} />
+            <Route path="/pdfs/telecomunicazioni" element={<Telecomunicazioni />} />
+            <Route path="/pdfs/viewerpdf" element={<Viewer />} />
+            <Route path="/viewer3d" element={<Viewer3D />} />
+            <Route path="/3dmodels" element={<Files3d />} />
+            <Route path="/pdfViewer" element={<ViewerPage />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
